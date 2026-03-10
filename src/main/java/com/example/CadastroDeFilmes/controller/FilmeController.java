@@ -29,6 +29,11 @@ public class FilmeController{
         return filmeService.buscarPorId(id);
     }
 
+    @PutMapping("/{id}")
+    public Filme atualizar(@PathVariable Long id, @RequestBody Filme filme) {
+        return filmeService.atualizar(id, filme);
+    }
+
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         filmeService.deletar(id);

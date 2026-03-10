@@ -51,6 +51,17 @@ public class FilmeService {
         return filmeRepository.findById(id).orElseThrow();
     }
 
+    public Filme atualizar(Long id, Filme dadosAtualizado) {
+        Filme filmeExistente = buscarPorId(id);
+
+        filmeExistente.setNome(dadosAtualizado.getNome());
+        filmeExistente.setDiretor(dadosAtualizado.getDiretor());
+        filmeExistente.setAnoLancamento(dadosAtualizado.getAnoLancamento());
+        filmeExistente.setSinopse(dadosAtualizado.getSinopse());
+
+        return salvar(filmeExistente);
+    }
+
     public void deletar(Long id) {
         buscarPorId(id);
 
